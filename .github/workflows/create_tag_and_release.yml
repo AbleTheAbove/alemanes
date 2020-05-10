@@ -16,11 +16,11 @@ jobs:
       - name: Build project
         run: cargo build --release --target x86_64-unknown-linux-musl --locked
       - name: Bump version and push tag
-          uses: anothrNick/github-tag-action@1.17.2
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            WITH_V: true
-          id: bump_version
+        uses: anothrNick/github-tag-action@1.17.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
+        id: bump_version
       - name: Create release and upload binary
         uses: svenstaro/upload-release-action@v1-release
         with:
